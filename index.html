@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoomView - Movie & TV Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="splash-screen">
+        <h1 class="splash-text">DoomView</h1>
+        <p class="splash-subtitle">— created by Sadman Mahboob Alvi —</p>
+    </div>
+
+    <div id="main-content" class="page-container">
+
+        <header>
+            <div class="header-info">
+                <span id="digital-clock"></span>
+                <span id="calendar-date"></span>
+            </div>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+                    <i class="fas fa-sun"></i> 
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <h1>Enter Your Doom</h1>
+            
+            <section class="search-section">
+                <form id="search-form">
+                    <input type="text" id="search-input" placeholder="Enter Movie or TV Series Name (1960-Present)" required>
+                    <button type="submit">Search</button>
+                </form>
+            </section>
+
+            <section id="result-container" class="movie-results">
+                <p class="welcome-message">Search for a movie or TV series to see detailed reviews and information.</p>
+            </section>
+        </main>
+
+        <footer>
+            <a href="contact.html">Contact Us</a>
+            <p>&copy; 2025 DoomView</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

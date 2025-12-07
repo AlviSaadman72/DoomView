@@ -1,0 +1,315 @@
+/* style.css */
+
+/* ==================================== */
+/* 4. Theme Variables (Light/Dark) */
+/* ==================================== */
+
+:root {
+    /* Light Theme (Default: White and Blue) */
+    --main-bg-color: #ffffff;
+    --main-text-color: #212529; /* Dark Gray/Black */
+    --primary-color: #007bff; /* Bright Blue (Accent/Button) */
+    --secondary-color: #f8f9fa; /* Light Gray (Header/Footer/Cards) */
+    --border-color: #ced4da;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+    /* Dark Theme (Black and Deep Red) */
+    --main-bg-color: #121212; /* Darker Black */
+    --main-text-color: #f8f9fa; /* Off White */
+    --primary-color: #dc3545; /* Deep Red (Accent/Button) */
+    --secondary-color: #212529; /* Dark Gray (Header/Footer/Cards) */
+    --border-color: #495057;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================================== */
+/* General Styles */
+/* ==================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    transition: background-color 0.5s, color 0.5s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--main-text-color);
+}
+
+/* Styling for Input Fields and Buttons */
+button, input[type="text"], textarea {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+button {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--main-bg-color); 
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    outline: none;
+}
+
+/* ==================================== */
+/* 1. Splash Screen Animation */
+/* ==================================== */
+
+#splash-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Fade out transition */
+}
+
+.splash-text {
+    font-size: 8vw;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: white;
+    animation: text-pop 1s ease-out;
+}
+
+.splash-subtitle {
+    font-size: 2vw;
+    font-weight: 300;
+    opacity: 0;
+    animation: subtitle-fade 1s ease-in-out 1.5s forwards;
+}
+
+@keyframes text-pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes subtitle-fade {
+    to { opacity: 1; }
+}
+
+/* Class added by JS to hide the screen */
+#splash-screen.hidden {
+    opacity: 0;
+}
+
+/* ==================================== */
+/* Header, Clock & Theme Toggle */
+/* ==================================== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-bottom: 30px;
+}
+
+.header-info {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+#digital-clock {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    padding: 0;
+}
+
+/* Icon visibility toggle */
+body.dark-theme #theme-toggle .fa-sun {
+    display: none;
+}
+
+body:not(.dark-theme) #theme-toggle .fa-moon {
+    display: none;
+}
+
+/* ==================================== */
+/* 2. Search Section */
+/* ==================================== */
+
+.search-section {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+#search-form {
+    display: flex;
+    gap: 10px;
+}
+
+#search-input {
+    flex-grow: 1;
+}
+
+/* ==================================== */
+/* Movie Results */
+/* ==================================== */
+
+.movie-results {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    /* Styles for backdrop image when displayed */
+    background-attachment: fixed; 
+    background-blend-mode: darken;
+    transition: background-color 0.5s;
+}
+
+.movie-poster {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.result-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.download-confidence {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.review-box {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    border-left: 5px solid var(--primary-color);
+    font-style: italic;
+}
+
+.error-message {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ==================================== */
+/* 6. Contact Form Styling */
+/* ==================================== */
+
+.contact-main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form textarea {
+    width: 100%;
+}
+
+.submit-button {
+    margin-top: 10px;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ==================================== */
+/* Footer */
+/* ==================================== */
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px; 
+    font-size: 0.9em;
+    color: #6c757d;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DoomView</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="main-content" class="page-container">
+
+        <header>
+            <div class="header-info">
+                <span id="digital-clock"></span>
+                <span id="calendar-date"></span>
+            </div>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="contact-main">
+            <h1>Contact DoomView Owner</h1>
+            <p>Use the form below to send a message directly to Sadman Mahboob Alvi.</p>
+            
+            <form action="https://formspree.io/f/xdkdnkbv" method="POST" class="contact-form">
+                
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="Name" required>
+
+                <label for="contact">Email Address / Mobile Number:</label>
+                <input type="text" id="contact" name="Contact_Details" placeholder="Email or Mobile Number" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="Message" rows="6" required></textarea>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            
+            <a href="index.html" class="back-link">← Back to Search</a>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 DoomView</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
